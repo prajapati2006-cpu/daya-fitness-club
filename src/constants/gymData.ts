@@ -170,8 +170,8 @@ export const FAQS = [
     a: 'Yes! We offer a complimentary 1-day trial for all new visitors. Walk in with valid ID or call us to reserve your slot.',
   },
   {
-    q: 'Are your trainers internationally certified?',
-    a: 'All our trainers hold international certifications (NSCA, ACSM, CrossFit L2, and more) with a minimum of 3 years of professional experience.',
+    q: 'Are your trainers certified?',
+    a: 'All our trainers hold professional certifications with a minimum of 3 years of experience.',
   },
   {
     q: 'Is diet consultation included in membership?',
