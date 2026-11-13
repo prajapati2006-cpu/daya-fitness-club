@@ -18,18 +18,15 @@ export default function FloatingWhatsApp() {
           style={{ background: '#25D366', animationDuration: '2.5s' }}
         />
 
-        {/* Authentic WhatsApp Floating Button with iconic white speech bubble & phone receiver */}
+        {/* Authentic WhatsApp Floating Button with exactly ONE iconic white speech bubble & phone receiver */}
         <div
-          className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+          className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-2xl"
           style={{
             background: 'linear-gradient(135deg, #2ae771 0%, #25D366 55%, #1ebe5d 100%)',
             boxShadow: '0 8px 24px -2px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0, 0, 0, 0.45)',
           }}
         >
-          {/* Mobile size */}
-          <WhatsAppIcon size={32} variant="white" className="sm:hidden" />
-          {/* Desktop size */}
-          <WhatsAppIcon size={36} variant="white" className="hidden sm:inline-block" />
+          <WhatsAppIcon size={34} variant="white" className="w-8 h-8 sm:w-9 sm:h-9" />
         </div>
 
         {/* Tooltip */}
