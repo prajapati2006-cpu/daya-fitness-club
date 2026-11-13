@@ -6,9 +6,10 @@ const FACILITY_IMAGES = {
   cardio: '/facility-cardio.jpg',
   weights: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80',
   panoramic: [
+    '/hero.jpg',
+    '/trainer-mohit.jpg',
     '/facility-building.jpg',
     '/facility-cardio.jpg',
-    '/hero.jpg',
     '/trainer-bg.jpg',
     'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=60',
   ],
@@ -119,7 +120,14 @@ export default function Facility() {
             style={{ animation: 'marqueeScroll 30s linear infinite', width: 'max-content' }}
           >
             {[...FACILITY_IMAGES.panoramic, ...FACILITY_IMAGES.panoramic].map((src, i) => (
-              <img key={i} src={src} alt="" className="h-full w-48 sm:w-64 object-cover flex-shrink-0" />
+              <img
+                key={i}
+                src={src}
+                alt="Daya Fitness Club"
+                className={`h-full w-48 sm:w-64 object-cover flex-shrink-0 ${
+                  src.includes('trainer') ? 'object-[center_15%]' : 'object-center'
+                }`}
+              />
             ))}
           </div>
         </div>

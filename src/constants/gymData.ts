@@ -203,6 +203,7 @@ export const GALLERY_IMAGES = [
   { src: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80', category: 'FACILITY', tall: false },
   { src: 'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=800&q=80', category: 'FACILITY', tall: true },
   { src: '/facility-lockers.jpg', category: 'FACILITY', tall: false },
+  { src: '/trainer-mohit.jpg', category: 'FACILITY', tall: true },
   { src: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80', category: 'YOGA', tall: false },
   { src: '/gallery-boxing.jpg', category: 'GYM FLOOR', tall: true },
   { src: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80', category: 'CARDIO', tall: false },
