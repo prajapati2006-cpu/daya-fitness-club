@@ -18,7 +18,7 @@ const FACILITY_IMAGES = {
 };
 
 const FACILITY_MODAL_IMAGES = [
-  { src: FACILITY_IMAGES.main, title: '10,000 SQ FT GYM FLOOR • Dual-Level Arena', category: 'FACILITY' },
+  { src: FACILITY_IMAGES.main, title: '3,000 SQ FT GYM FLOOR • Dual-Level Arena', category: 'FACILITY' },
   { src: FACILITY_IMAGES.cardio, title: 'Cardio Training Zone', category: 'FACILITY' },
   { src: FACILITY_IMAGES.weights, title: 'Free Weights & Olympic Racks', category: 'FACILITY' },
   { src: '/transformation.jpg', title: 'Real Member Transformation Result', category: 'RESULTS' },
@@ -77,7 +77,7 @@ export default function Facility() {
             </div>
             <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6" style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.2) 65%, transparent 100%)' }}>
               <p className="text-white font-bold text-xl sm:text-2xl" style={{ fontFamily: "'Bebas Neue', cursive", letterSpacing: '0.05em' }}>
-                10,000 SQ FT GYM FLOOR
+                3,000 SQ FT GYM FLOOR
               </p>
               <p className="text-neutral-300 text-xs mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Dual-level premium training arena in Sector 123, Noida • Tap to view full size

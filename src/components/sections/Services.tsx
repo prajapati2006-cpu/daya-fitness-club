@@ -72,7 +72,7 @@ const SERVICE_DETAILS: Record<string, { tags: string[]; perks: string[] }> = {
   'General Gym Workouts': {
     tags: ['Full Floor Access', 'Cardio Deck', 'All Levels'],
     perks: [
-      'Spacious 10,000 sq ft dual-story air-conditioned facility',
+      'Spacious 3,000 sq ft dual-story air-conditioned facility',
       'High-end cardio machines, ellipticals, treadmills & cycles',
       'Flexible morning (5-10 AM) & evening (5-10 PM) training slots',
     ],

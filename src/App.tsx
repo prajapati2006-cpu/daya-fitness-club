@@ -4,6 +4,7 @@ import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import CustomCursor from './components/CustomCursor';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import StickyMobileBar from './components/StickyMobileBar';
 import Hero from './components/sections/Hero';
 import Services from './components/sections/Services';
 import Facility from './components/sections/Facility';
@@ -55,6 +56,7 @@ export default function App() {
           </main>
           <Footer />
           <FloatingWhatsApp />
+          <StickyMobileBar />
         </motion.div>
       )}
     </>

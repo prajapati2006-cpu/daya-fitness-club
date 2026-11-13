@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Star, Play } from 'lucide-react';
+import { ChevronDown, Play } from 'lucide-react';
+import GoogleReviewBadge from '../GoogleReviewBadge';
 import { GYM } from '../../constants/gymData';
 
 const HERO_BG = '/hero.jpg';
@@ -171,22 +172,13 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Rating, Members & Est. date badge */}
+        {/* Live Google Verified Review Badge */}
         <motion.div
-          className="flex items-center gap-2.5 text-xs text-[#D1D5DB] bg-black/80 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 w-fit shadow-xl"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <div className="flex items-center gap-1">
-            <Star size={13} fill="#f59e0b" color="#f59e0b" />
-            <span className="font-semibold text-white">4.8 Rating</span>
-          </div>
-          <span className="text-white/30">•</span>
-          <span>160+ Members</span>
-          <span className="text-white/30">•</span>
-          <span>Est. 2023</span>
+          <GoogleReviewBadge variant="hero" />
         </motion.div>
       </div>
 

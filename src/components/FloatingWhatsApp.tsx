@@ -7,7 +7,7 @@ export default function FloatingWhatsApp() {
       href={`https://wa.me/${GYM.whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 group flex items-center justify-center select-none"
+      className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 group flex items-center justify-center select-none"
       title="Chat with us on WhatsApp"
       aria-label="Chat with us on WhatsApp"
     >

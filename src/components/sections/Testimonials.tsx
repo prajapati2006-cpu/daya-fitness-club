@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import GoogleReviewBadge from '../GoogleReviewBadge';
 import { TESTIMONIALS } from '../../constants/gymData';
 
 export default function Testimonials() {
@@ -39,14 +40,9 @@ export default function Testimonials() {
       <div className="relative z-10 section-wrapper">
         {/* Header */}
         <motion.div className="text-center mb-12" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          {/* Google rating strip */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="text-white font-bold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>Google</span>
-            <div className="flex gap-0.5">
-              {[1,2,3,4,5].map(s => <Star key={s} size={16} fill="#f59e0b" color="#f59e0b" />)}
-            </div>
-            <span className="font-bold text-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>4.8</span>
-            <span className="text-[#A0A0A0] text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>Based on Google reviews</span>
+          {/* Official Live Google Review Card */}
+          <div className="mb-8">
+            <GoogleReviewBadge variant="card" />
           </div>
           <div className="section-badge mx-auto w-fit">MEMBER STORIES</div>
           <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '0.02em', lineHeight: 1 }}>
