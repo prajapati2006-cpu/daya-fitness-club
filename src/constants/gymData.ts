@@ -23,7 +23,7 @@ export const GYM = {
   facebookUrl: 'https://facebook.com/profile.php?id=61554800442159',
   youtubeName: 'Daya Fitness Club Channel',
   youtubeUrl: 'https://www.youtube.com',
-  mapsUrl: 'https://maps.app.goo.gl/HXHnj2eC4UCXZWrg8',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Daya+Fitness+Club+Ambedkar+City+Road+Sector+123+Noida',
   rating: 4.8,
   yearOpened: 2023,
   memberCount: '160+',

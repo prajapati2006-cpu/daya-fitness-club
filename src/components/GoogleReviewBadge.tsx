@@ -122,3 +122,4 @@ export default function GoogleReviewBadge({ variant = 'pill', className = '' }: 
     </a>
   );
 }
+
