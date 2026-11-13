@@ -200,7 +200,7 @@ export const GALLERY_IMAGES = [
   { src: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&q=80', category: 'CARDIO', tall: false },
   { src: '/gallery-squats.jpg', category: 'GYM FLOOR', tall: false },
   { src: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80', category: 'GYM FLOOR', tall: true },
-  { src: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80', category: 'FACILITY', tall: false },
+  { src: '/facility-sauna.jpg', category: 'FACILITY', tall: false },
   { src: 'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=800&q=80', category: 'FACILITY', tall: true },
   { src: '/facility-lockers.jpg', category: 'FACILITY', tall: false },
   { src: '/trainer-mohit.jpg', category: 'FACILITY', tall: true },
