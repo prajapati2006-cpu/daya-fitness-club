@@ -139,7 +139,14 @@ export default function Footer() {
           <p>© {year} {GYM.name}. All rights reserved.</p>
           <p>
             Website by{' '}
-            <a href="#" className="text-[var(--primary)] hover:underline">Vayra Digital Agency</a>
+            <a
+              href="https://vayramedia.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--primary)] hover:underline font-semibold transition-colors"
+            >
+              Vayra Media
+            </a>
           </p>
         </div>
       </div>
