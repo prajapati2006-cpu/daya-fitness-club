@@ -32,7 +32,7 @@ export default function Location() {
           {/* Google Maps embed - pointer-events conditionally disabled to prevent mobile touch-scroll lock */}
           <iframe
             title={`${GYM.name} Location`}
-            src="https://maps.google.com/maps?q=Ambedkar+City+Road+Sector+123+Noida+Uttar+Pradesh+201304&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Daya+Fitness+Club+Noida&t=&z=16&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="100%"
             className={`transition-all duration-300 ${mapActive ? 'pointer-events-auto' : 'pointer-events-none'}`}
