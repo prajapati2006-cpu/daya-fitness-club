@@ -1,20 +1,82 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ChevronDown, ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { SERVICES, GYM } from '../../constants/gymData';
+import { WhatsAppIcon } from '../SocialIcons';
 
-const TABS = ['ALL', 'GYM FLOOR', 'CLASSES', 'PROGRAMS'] as const;
-
-const SERVICE_TAGS: Record<string, string[]> = {
-  'Strength Training': ['Hypertrophy', 'Compound Lifts', 'Power'],
-  'Weightlifting': ['Olympic Barbells', 'Power Racks', 'Deadlift Zone'],
-  'CrossFit Training': ['High Intensity', 'Endurance', 'Conditioning'],
-  'Yoga Classes': ['Flexibility', 'Mindfulness', 'Core Balance'],
-  'Zumba Classes': ['Cardio Dance', 'Calorie Burn', 'Rhythm'],
-  'Kickboxing Classes': ['Combat Agility', 'Striking', 'Self-Defense'],
-  'Male Fitness Programs': ['Bulking & Cut', 'Strength Regimen', 'Personalized'],
-  'Female Fitness Programs': ['Body Toning', 'Posture & Core', 'Fat Loss'],
-  'General Gym Workouts': ['Full Floor Access', 'Cardio Deck', 'All Levels'],
+const SERVICE_DETAILS: Record<string, { tags: string[]; perks: string[] }> = {
+  'Strength Training': {
+    tags: ['Hypertrophy', 'Compound Lifts', 'Power'],
+    perks: [
+      'Targeted muscle-building regimens for maximum strength',
+      'Full access to heavy cable towers, chest presses & pull systems',
+      'Certified trainer form correction and technique coaching',
+    ],
+  },
+  'Weightlifting': {
+    tags: ['Olympic Barbells', 'Power Racks', 'Deadlift Zone'],
+    perks: [
+      'Full set of Olympic standard barbells and precision plates',
+      'Reinforced shock-absorbing rubber deadlift drop zones',
+      'Multiple heavy-duty power racks with safety spotter arms',
+    ],
+  },
+  'CrossFit Training': {
+    tags: ['HIIT & Stamina', 'Functional Fitness', 'Endurance'],
+    perks: [
+      'High-intensity functional conditioning circuits',
+      'Kettlebells, battle ropes, medicine balls & plyo boxes',
+      'Builds stamina, agility, and athletic endurance',
+    ],
+  },
+  'Yoga Classes': {
+    tags: ['Mindfulness', 'Flexibility', 'Core Stability'],
+    perks: [
+      'Expert instructor-guided flexibility and posture alignment',
+      'Calming breathwork to relieve stress and accelerate recovery',
+      'Strengthens joints, deep core muscles, and mind-body balance',
+    ],
+  },
+  'Zumba Classes': {
+    tags: ['Cardio Dance', 'Calorie Burn', 'High Energy'],
+    perks: [
+      'Fast-paced energetic dance routines to high-tempo music',
+      'Burns hundreds of calories while keeping workouts fun',
+      'Open to all fitness levels with an encouraging group vibe',
+    ],
+  },
+  'Kickboxing Classes': {
+    tags: ['Combat Agility', 'Striking', 'Self-Defense'],
+    perks: [
+      'Heavy bag strike drills, punching combinations & footwork',
+      'Intense full-body cardiovascular and rotational power workout',
+      'Builds real-world self-defense agility and reaction speed',
+    ],
+  },
+  'Male Fitness Programs': {
+    tags: ['Bulking & Cut', 'Strength Regimen', 'Personalized'],
+    perks: [
+      'Custom bulking, cutting, or athletic maintenance routines',
+      'Targeted upper & lower body progressive overload plans',
+      'Dietary and supplement consultation tailored to your goals',
+    ],
+  },
+  'Female Fitness Programs': {
+    tags: ['Body Toning', 'Posture & Core', 'Fat Loss'],
+    perks: [
+      'Dedicated body sculpting, glute, posture, and core toning',
+      'Safe, welcoming, and empowering training atmosphere',
+      'Customized cardio-to-strength ratios for sustainable results',
+    ],
+  },
+  'General Gym Workouts': {
+    tags: ['Full Floor Access', 'Cardio Deck', 'All Levels'],
+    perks: [
+      'Spacious 10,000 sq ft dual-story air-conditioned facility',
+      'High-end cardio machines, ellipticals, treadmills & cycles',
+      'Flexible morning (5-10 AM) & evening (5-10 PM) training slots',
+    ],
+  },
 };
 
 const KINETIC_WORDS = [
@@ -33,28 +95,26 @@ const KINETIC_WORDS = [
 ];
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]>('ALL');
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const filtered = activeTab === 'ALL'
-    ? SERVICES
-    : SERVICES.filter(s => s.category === activeTab);
+  const toggleService = (index: number) => {
+    setOpenIndex(prev => (prev === index ? null : index));
+  };
 
   return (
     <section id="services" className="relative py-24 sm:py-32 overflow-hidden" style={{ background: '#080808' }}>
-      {/* 1. Pure CSS Background Ambience - NO IMAGES */}
+      {/* Background Lighting Effects (NO IMAGES) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Soft radial glow pulses */}
         <div
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] opacity-20 blur-[130px] rounded-full"
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] opacity-20 blur-[140px] rounded-full"
           style={{ background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)' }}
         />
         <div
-          className="absolute bottom-10 right-10 w-[450px] h-[300px] opacity-15 blur-[100px] rounded-full"
+          className="absolute bottom-10 right-10 w-[450px] h-[300px] opacity-15 blur-[120px] rounded-full"
           style={{ background: 'radial-gradient(circle, #dc2626 0%, transparent 70%)' }}
         />
-        {/* Subtle geometric grid lines */}
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
               'linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)',
@@ -63,12 +123,12 @@ export default function Services() {
         />
       </div>
 
-      {/* 2. Kinetic Typography Marquee Stream - Continuous animated text banner */}
+      {/* Kinetic Typography Marquee Stream */}
       <div className="relative z-10 w-full overflow-hidden mb-16 py-3 border-y border-white/5 bg-black/40 backdrop-blur-sm">
         <div
           className="flex whitespace-nowrap"
           style={{
-            animation: 'marqueeScroll 24s linear infinite',
+            animation: 'marqueeScroll 26s linear infinite',
             width: 'max-content',
             willChange: 'transform',
           }}
@@ -91,7 +151,7 @@ export default function Services() {
       <div className="relative z-10 section-wrapper">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -109,197 +169,242 @@ export default function Services() {
               lineHeight: 1,
             }}
           >
-            EVERYTHING YOU NEED TO{' '}
+            OUR TRAINING{' '}
             <span
-              className="relative inline-block"
               style={{
                 color: 'var(--primary)',
                 textShadow: '0 0 35px rgba(220,38,38,0.55)',
               }}
             >
-              WIN
+              DISCIPLINES
             </span>
           </h2>
           <p
             className="text-neutral-400 text-sm sm:text-base max-w-xl mx-auto mt-4"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
-            World-class coaching, heavy iron, and high-energy group fitness engineered for true physical transformation.
+            Explore our complete lineup of training programs. Select any discipline to see highlights, coaching structure, and details.
           </p>
         </motion.div>
 
-        {/* Animated Filter Tabs */}
-        <div className="flex flex-wrap gap-2.5 justify-center mb-12">
-          {TABS.map(tab => {
-            const isActive = activeTab === tab;
+        {/* List-wise Animated Section */}
+        <div className="max-w-4xl mx-auto space-y-3">
+          {SERVICES.map((service, index) => {
+            const isOpen = openIndex === index;
+            const details = SERVICE_DETAILS[service.name] || {
+              tags: ['Fitness', 'Workout', 'Coaching'],
+              perks: ['Certified coaching guidance', 'Full equipment access', 'Flexible timing'],
+            };
+            const indexNumber = String(index + 1).padStart(2, '0');
+
             return (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className="relative px-5 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300"
+              <motion.div
+                key={service.name}
+                className="rounded-2xl overflow-hidden transition-all duration-300"
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  color: isActive ? '#000' : '#A0A0A0',
-                  background: isActive ? 'var(--primary)' : 'rgba(255,255,255,0.04)',
-                  boxShadow: isActive ? '0 0 20px rgba(220,38,38,0.45)' : 'none',
-                  border: isActive ? '1px solid var(--primary)' : '1px solid rgba(255,255,255,0.08)',
+                  background: isOpen ? 'rgba(20,20,20,0.95)' : 'rgba(14,14,14,0.7)',
+                  border: isOpen ? '1px solid rgba(220,38,38,0.45)' : '1px solid rgba(255,255,255,0.06)',
+                  boxShadow: isOpen ? '0 12px 35px rgba(220,38,38,0.12)' : 'none',
                 }}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.04 }}
               >
-                {tab}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Animated Typography Cards Grid - ONLY TEXT & VECTOR BADGES (ZERO IMAGES) */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((service, i) => {
-              const tags = SERVICE_TAGS[service.name] || ['Training', 'Fitness', 'Coaching'];
-              const indexFormatted = String(i + 1).padStart(2, '0');
-
-              return (
-                <motion.div
-                  key={service.name}
-                  layout
-                  initial={{ opacity: 0, y: 35, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.94 }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                  className="group relative rounded-2xl p-7 flex flex-col justify-between overflow-hidden transition-all duration-300 transform-gpu cursor-default"
-                  style={{
-                    background: 'rgba(16,16,16,0.85)',
-                    backdropFilter: 'blur(20px)',
-                    WebkitBackdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
-                  }}
+                {/* List Item Header Row */}
+                <button
+                  type="button"
+                  onClick={() => toggleService(index)}
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 transition-colors duration-200 group cursor-pointer"
                 >
-                  {/* Hover ambient spotlight glow inside the card */}
-                  <div
-                    className="absolute -top-24 -right-24 w-48 h-48 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-3xl"
-                    style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.4) 0%, transparent 70%)' }}
-                  />
+                  {/* Left Column: Number + Icon + Title + Category */}
+                  <div className="flex items-center gap-4 sm:gap-6 min-w-0">
+                    {/* Index Number */}
+                    <span
+                      className="text-lg sm:text-2xl font-black tracking-wider transition-colors duration-300 flex-shrink-0"
+                      style={{
+                        fontFamily: "'Bebas Neue', cursive",
+                        color: isOpen ? 'var(--primary)' : 'rgba(255,255,255,0.25)',
+                      }}
+                    >
+                      {indexNumber}
+                    </span>
 
-                  {/* Top Animated Watermark Number */}
-                  <div
-                    className="absolute top-4 right-5 text-5xl sm:text-6xl font-black text-white/[0.04] group-hover:text-red-500/15 group-hover:scale-110 transition-all duration-500 select-none pointer-events-none"
-                    style={{ fontFamily: "'Bebas Neue', cursive" }}
-                  >
-                    {indexFormatted}
-                  </div>
+                    {/* Emoji Icon Badge */}
+                    <div
+                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                      style={{
+                        background: isOpen ? 'rgba(220,38,38,0.15)' : 'rgba(255,255,255,0.04)',
+                        border: isOpen ? '1px solid rgba(220,38,38,0.3)' : '1px solid rgba(255,255,255,0.08)',
+                      }}
+                    >
+                      {service.icon}
+                    </div>
 
-                  {/* Card Content Top */}
-                  <div>
-                    {/* Header Row: Icon + Category Badge + Active status */}
-                    <div className="flex items-center justify-between gap-3 mb-6">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(220,38,38,0.35)]"
+                    {/* Title & Category Badge */}
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2.5 flex-wrap">
+                        <h3
+                          className="text-xl sm:text-2xl md:text-3xl text-white font-normal tracking-wide transition-all duration-300 group-hover:text-red-500 truncate"
                           style={{
-                            background: 'rgba(220,38,38,0.1)',
-                            border: '1px solid rgba(220,38,38,0.25)',
+                            fontFamily: "'Bebas Neue', cursive",
+                            color: isOpen ? 'var(--primary)' : undefined,
                           }}
                         >
-                          {service.icon}
-                        </div>
+                          {service.name}
+                        </h3>
                         <span
-                          className="text-[10px] tracking-widest uppercase font-bold px-2.5 py-1 rounded-full text-red-400 bg-red-500/10 border border-red-500/20"
+                          className="hidden sm:inline-block text-[10px] tracking-widest uppercase font-bold px-2 py-0.5 rounded-full text-red-400 bg-red-500/10 border border-red-500/20"
                           style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {service.category}
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-[11px] text-neutral-400" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        <span>Available</span>
-                      </div>
+                      {/* Preview Description for closed items */}
+                      {!isOpen && (
+                        <p
+                          className="text-neutral-400 text-xs sm:text-sm mt-0.5 line-clamp-1 hidden md:block"
+                          style={{ fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          {service.description}
+                        </p>
+                      )}
                     </div>
+                  </div>
 
-                    {/* Service Title */}
-                    <h3
-                      className="text-white text-2xl sm:text-3xl font-normal tracking-wide mb-3 transition-colors duration-300 group-hover:text-red-500"
-                      style={{ fontFamily: "'Bebas Neue', cursive", letterSpacing: '0.04em' }}
-                    >
-                      {service.name}
-                    </h3>
-
-                    {/* Description */}
-                    <p
-                      className="text-neutral-400 text-sm leading-relaxed mb-6"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    >
-                      {service.description}
-                    </p>
-
-                    {/* Animated Feature Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {tags.map(tag => (
+                  {/* Right Column: Tags & Expand Indicator */}
+                  <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+                    <div className="hidden lg:flex items-center gap-1.5">
+                      {details.tags.slice(0, 2).map(tag => (
                         <span
                           key={tag}
-                          className="text-[11px] font-medium px-2.5 py-1 rounded-md text-neutral-300 bg-white/[0.04] border border-white/5 group-hover:border-red-500/30 group-hover:text-white transition-all duration-300"
+                          className="text-[11px] px-2.5 py-1 rounded-md text-neutral-400 bg-white/[0.03] border border-white/5"
                           style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                  </div>
 
-                  {/* Card Content Bottom: Interactive Callout */}
-                  <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <a
-                      href={`https://wa.me/${GYM.whatsapp}?text=Hi! I would like more information about ${encodeURIComponent(service.name)} at Daya Fitness Club.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-red-500 group-hover:text-red-400 transition-colors uppercase tracking-wider"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    {/* Expand Arrow Button */}
+                    <div
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-300"
+                      style={{
+                        background: isOpen ? 'var(--primary)' : 'rgba(255,255,255,0.06)',
+                        color: isOpen ? '#000' : '#fff',
+                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                      }}
                     >
-                      <span>Explore Program</span>
-                      <ArrowRight
-                        size={14}
-                        className="transition-transform duration-300 group-hover:translate-x-1.5"
-                      />
-                    </a>
-
-                    <span className="text-[11px] text-neutral-400" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                      Coaching Included
-                    </span>
+                      <ChevronDown size={18} />
+                    </div>
                   </div>
+                </button>
 
-                  {/* Animated Glowing Edge Beam at Card Bottom */}
-                  <div
-                    className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500 ease-out"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent, var(--primary), #ffffff, var(--primary), transparent)',
-                    }}
-                  />
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
+                {/* Expanded Animated Content */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    >
+                      <div className="px-5 sm:px-6 pb-6 pt-1 border-t border-white/5">
+                        {/* Description */}
+                        <p
+                          className="text-neutral-300 text-sm sm:text-base leading-relaxed mb-5"
+                          style={{ fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          {service.description}
+                        </p>
 
-        {/* Bottom Kinetic Text Banner - Reverse Marquee */}
-        <div className="mt-16 text-center">
-          <p
-            className="text-xs uppercase tracking-[0.25em] text-neutral-400 mb-3"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+                        {/* Feature Bullet Points */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                          {details.perks.map((perk, pIdx) => (
+                            <div
+                              key={pIdx}
+                              className="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-2.5"
+                            >
+                              <CheckCircle2 size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
+                              <span
+                                className="text-xs text-neutral-300 leading-snug"
+                                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                              >
+                                {perk}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Bottom Action Bar: Tags + WhatsApp Inquiry CTA */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-white/5">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-xs text-neutral-400 mr-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                              Focus Areas:
+                            </span>
+                            {details.tags.map(t => (
+                              <span
+                                key={t}
+                                className="text-xs font-semibold px-2.5 py-1 rounded-full text-red-300 bg-red-950/40 border border-red-800/40"
+                                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                              >
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+
+                          <a
+                            href={`https://wa.me/${GYM.whatsapp}?text=Hi! I am interested in joining ${encodeURIComponent(service.name)} at Daya Fitness Club.`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto"
+                            style={{
+                              background: '#25D366',
+                              boxShadow: '0 4px 18px rgba(37, 211, 102, 0.4)',
+                              fontFamily: "'DM Sans', sans-serif",
+                            }}
+                          >
+                            <WhatsAppIcon size={16} />
+                            <span>Inquire for {service.name}</span>
+                            <ArrowRight size={14} />
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Bottom CTA Box */}
+        <motion.div
+          className="mt-14 text-center max-w-xl mx-auto p-8 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-md"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h4
+            className="text-white text-2xl mb-2 font-normal"
+            style={{ fontFamily: "'Bebas Neue', cursive", letterSpacing: '0.04em' }}
           >
-            CUSTOMIZED REGIMENS FOR EVERY GOAL
+            NOT SURE WHICH PROGRAM FITS YOU?
+          </h4>
+          <p className="text-neutral-400 text-xs sm:text-sm mb-5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            Speak directly with Head Trainer Mohit Pandit & Founder Vikas Singh for a free fitness goal assessment.
           </p>
           <a
-            href={`https://wa.me/${GYM.whatsapp}?text=Hi! I want to join Daya Fitness Club and get a workout plan.`}
+            href={`https://wa.me/${GYM.whatsapp}?text=Hi! I want a free fitness goal assessment at Daya Fitness Club.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="glow-btn inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm shadow-xl"
+            className="glow-btn inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl font-bold text-sm shadow-xl"
           >
-            <span>Book a Free Workout Consultation</span>
+            <span>Book Free Assessment on WhatsApp</span>
             <ArrowRight size={16} />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
