@@ -67,11 +67,11 @@ function TrainerCard({ trainer, index }: { trainer: typeof TRAINERS[0]; index: n
         }}
       >
         {/* Photo area */}
-        <div className="relative h-80 sm:h-96 overflow-hidden">
+        <div className="relative aspect-square sm:aspect-auto sm:h-96 overflow-hidden">
           <img
             src={trainer.image}
             alt={trainer.name}
-            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500"
             style={{ filter: 'brightness(0.95)' }}
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.15) 55%, transparent 100%)' }} />

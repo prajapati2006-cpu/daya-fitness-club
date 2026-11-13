@@ -35,7 +35,7 @@ export default function About() {
 
             {/* Premium Framed Image */}
             <div
-              className="relative w-full max-w-[480px] h-[520px] lg:h-[560px] rounded-2xl overflow-hidden group shadow-[0_25px_60px_rgba(0,0,0,0.85)]"
+              className="relative w-full max-w-[480px] aspect-[4/5] sm:h-[520px] lg:h-[560px] rounded-2xl overflow-hidden group shadow-[0_25px_60px_rgba(0,0,0,0.85)]"
               style={{
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 background: '#121212',
