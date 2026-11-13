@@ -365,7 +365,7 @@ export default function Services() {
                               fontFamily: "'DM Sans', sans-serif",
                             }}
                           >
-                            <WhatsAppIcon size={16} />
+                            <WhatsAppIcon size={16} variant="white" />
                             <span>Inquire for {service.name}</span>
                             <ArrowRight size={14} />
                           </a>

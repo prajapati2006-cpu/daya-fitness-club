@@ -98,7 +98,7 @@ export default function FAQ() {
                 boxShadow: '0 4px 18px rgba(37, 211, 102, 0.45)',
               }}
             >
-              <WhatsAppIcon size={18} />
+              <WhatsAppIcon size={18} variant="white" />
               <span>WhatsApp</span>
             </a>
           </div>
