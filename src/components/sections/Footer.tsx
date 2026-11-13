@@ -7,7 +7,7 @@ const QUICK_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Facility', href: '#facility' },
-  { label: 'Membership', href: '#pricing' },
+  { label: 'Trainers', href: '#trainers' },
   { label: 'Contact', href: '#contact' },
 ];
 

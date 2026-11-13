@@ -82,7 +82,7 @@ export default function Navbar() {
             >
               <WhatsAppIcon size={20} />
             </a>
-            <a href="#pricing" className="glow-btn px-5 py-2.5 text-sm rounded-md font-bold">
+            <a href="#contact" className="glow-btn px-5 py-2.5 text-sm rounded-md font-bold">
               Join Now
             </a>
           </div>

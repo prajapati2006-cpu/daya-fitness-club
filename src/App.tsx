@@ -11,7 +11,6 @@ import Stats from './components/sections/Stats';
 import About from './components/sections/About';
 import Timings from './components/sections/Timings';
 import Testimonials from './components/sections/Testimonials';
-import Pricing from './components/sections/Pricing';
 import Trainers from './components/sections/Trainers';
 import Gallery from './components/sections/Gallery';
 import FAQ from './components/sections/FAQ';
@@ -48,7 +47,6 @@ export default function App() {
             <About />
             <Timings />
             <Testimonials />
-            <Pricing />
             <Trainers />
             <Gallery />
             <FAQ />

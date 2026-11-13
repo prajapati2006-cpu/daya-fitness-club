@@ -119,7 +119,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
           >
             <a
-              href="#pricing"
+              href="#contact"
               className="glow-btn justify-center px-5 py-2.5 text-xs sm:text-sm rounded-md font-bold text-center whitespace-nowrap shadow-lg"
             >
               Start Training Today →
