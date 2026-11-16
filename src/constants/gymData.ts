@@ -113,7 +113,7 @@ export const SERVICES = [
 
 export const TRAINERS = [
   {
-    name: 'Mohit Pandit',
+    name: 'Mohit Sharma',
     spec: 'Head Trainer & Fitness Coach',
     exp: '6+ Years',
     cert: 'Certified Fitness Trainer',

@@ -12,10 +12,10 @@
 ## 🌟 Highlights & Features
 
 - **Cinematic Hero**: AI-upscaled gym floor visual showcasing illuminated wall branding, founder Vikas Singh, and lower-left quick action CTAs.
-- **Facility Showcase**: 10,000 sq ft multi-floor fitness arena, Cardio Zone, Free Weights, and 3D panoramic photo reel.
+- **Facility Showcase**: 3,000 sq ft multi-floor fitness arena, Cardio Zone, Free Weights, and 3D panoramic photo reel.
 - **Real Member Transformation**: Highlighting authentic before-and-after results.
 - **Comprehensive Services**: Interactive cards for Strength Training, Weightlifting, CrossFit, Yoga, Zumba, and Kickboxing.
-- **Expert Trainer Profile**: Featuring Head Trainer Mohit Pandit with certification badges, experience, and Instagram connection.
+- **Expert Trainer Profile**: Featuring Head Trainer Mohit Sharma with certification badges, experience, and Instagram connection.
 - **Inside Daya Gallery**: Multi-category filterable photo masonry grid with fullscreen lightbox viewer.
 - **Fast WhatsApp CTA**: Direct instant messaging integration (`+91 7979867756`) for quick inquiries, tour bookings, and membership offers.
 - **Interactive Location**: Embedded Google Maps with smooth gesture controls for Noida Sector 123.

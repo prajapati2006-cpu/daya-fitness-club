@@ -181,12 +181,12 @@ export default function Trainers() {
             Want to train with us?
           </p>
           <a
-            href={`https://wa.me/${GYM.whatsapp}?text=Hi! I'm interested in personal training with ${TRAINERS[0]?.name || 'Daya Fitness Club'}.`}
+            href={`https://wa.me/${GYM.whatsapp}?text=Hi! I'm interested in personal training with ${TRAINERS[0]?.name || 'Mohit Sharma'}.`}
             target="_blank"
             rel="noopener noreferrer"
             className="ghost-btn px-8 py-3 rounded-lg text-sm"
           >
-            Train with Mohit Pandit →
+            Train with {TRAINERS[0]?.name || 'Mohit Sharma'} →
           </a>
         </motion.div>
       </div>

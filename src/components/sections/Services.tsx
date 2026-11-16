@@ -393,7 +393,7 @@ export default function Services() {
             NOT SURE WHICH PROGRAM FITS YOU?
           </h4>
           <p className="text-neutral-400 text-xs sm:text-sm mb-5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            Speak directly with Head Trainer Mohit Pandit & Founder Vikas Singh for a free fitness goal assessment.
+            Speak directly with Head Trainer Mohit Sharma & Founder Vikas Singh for a free fitness goal assessment.
           </p>
           <a
             href={`https://wa.me/${GYM.whatsapp}?text=Hi! I want a free fitness goal assessment at Daya Fitness Club.`}
